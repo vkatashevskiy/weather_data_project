@@ -1,4 +1,3 @@
-# префиксные суммы, поиск максимума и минимума, сортировка
 import numpy as np
 def build_prefix_sums(weather_data):
     """
