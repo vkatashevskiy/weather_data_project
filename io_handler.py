@@ -2,7 +2,6 @@
 import csv
 import os
 
-
 def read_csv(filename):
     if not os.path.exists(filename): # Проверяем существует ли файл
         raise FileNotFoundError(f"Файл '{filename}' не найден.")

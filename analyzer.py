@@ -1,4 +1,5 @@
 # префиксные суммы, поиск максимума и минимума, сортировка
+import numpy as np
 def build_prefix_sums(weather_data):
     """
     Принимает список словарей с данными о погоде
@@ -92,24 +93,25 @@ def sort_months(monthly_averages):
     Сортирует месяцы по средней температуре.
     Возвращает новый отсортированный словарь.
     """
-    items = list(monthly_averages.items()) # Превращаем словарь в список кортежей вида [(месяц, температура), ...]
-    n = len(items)
+    items = list(monthly_averages.items()) # Превращаем словарь в список кортежей вида [(месяц, температура), ... ]
 
-    def quick_sort(items):
-        if len(items) < 1:
-            return items
+    def quick_sort(arr):
+        if len(arr) <= 1:
+            return arr
         else:
-            low = items[0]
-            high = items[len(items) - 1]
-            demi = items[len(items) // 2]
-            pivot = np.median([low[2], high[2], demi[2]])
+            low = arr[0]
+            high = arr[len(arr) - 1]
+            demi = arr[len(arr) // 2]
 
-            left = [i for i in items if i[2] < pivot]
-            equal = [k for k in items if k[2] == pivot]
-            right = [j for j in items if j[2] > pivot]
+            # Находим медиану по температурам (индекс 1)
+            pivot = np.median([low[1], high[1], demi[1]])
 
-         return quick_sort(left) + equal + quick_sort(right)
+            left = [i for i in arr if i[1] < pivot]
+            equal = [k for k in arr if k[1] == pivot]
+            right = [j for j in arr if j[1] > pivot]
 
+        return quick_sort(left) + equal + quick_sort(right)
+
+    sorted_list = quick_sort(items)
     # Превращаем отсортированный список кортежей обратно в словарь
-    sorted_months_dict = quick_sort(items)
-    return sorted_months_dict
+    return dict(sorted_list)

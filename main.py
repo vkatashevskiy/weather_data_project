@@ -1,9 +1,9 @@
 # главный файл, в котором есть консольное меню
 # ПЕРЕД ТЕМ КАК НАЧИНАТЬ РАБОТУ:
-# git pull origin main
+# git pull origin main - вставит все то что написано другим участником
 #
 # ПОСЛЕ ТОГО КАК НАПИСАЛА КОД:
 # git status
 # git add .
-# git commit -m "ТВОЙ КОММЕНТ"
-# git push origin main
+# git commit -m "ТВОЙ КОММЕНТ" - коммент
+# git push origin main - пушишишь в гит
