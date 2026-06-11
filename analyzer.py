@@ -90,10 +90,10 @@ def find_min_temperature(weather_data):
 
 def sort_months(monthly_averages):
     """
-    Сортирует месяцы по средней температуре.
-    Возвращает новый отсортированный словарь.
+    Сортирует месяцы по средней температуре
+    Возвращает новый отсортированный словарь
     """
-    items = list(monthly_averages.items()) # Превращаем словарь в список кортежей вида [(месяц, температура), ... ]
+    items = list(monthly_averages.items()) # превращаем словарь в список кортежей вида [(месяц, температура), ... ]
 
     def quick_sort(arr):
         if len(arr) <= 1:
@@ -103,7 +103,7 @@ def sort_months(monthly_averages):
             high = arr[len(arr) - 1]
             demi = arr[len(arr) // 2]
 
-            # Находим медиану по температурам (индекс 1)
+            # находим медиану по температурам (индекс 1)
             pivot = np.median([low[1], high[1], demi[1]])
 
             left = [i for i in arr if i[1] < pivot]
@@ -113,5 +113,5 @@ def sort_months(monthly_averages):
         return quick_sort(left) + equal + quick_sort(right)
 
     sorted_list = quick_sort(items)
-    # Превращаем отсортированный список кортежей обратно в словарь
+    # превращаем отсортированный список кортежей обратно в словарь
     return dict(sorted_list)
